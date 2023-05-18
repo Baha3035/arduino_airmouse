@@ -30,6 +30,10 @@ To address  this  issue, we  recognized  the  need  for a solution  that  would 
 
 #### NOTE: Resistors  can  be  default  high  or  default  low. We used  default  low  resistors  so  in  the  Arduino  code  we  set: if(digitalRead(MouseB) == HIGH){...}. If  default  high  resistor  is  used  code  should  be  set  like: if(digitalRead(MouseB) == LOW){...}. We didn’t  find a way  to  determine  the  type  of  resistor  just  by  looking  at  it. But  it  can  be  determined  by  testing  with  python  script. When  you  use  default  high  resistor  and  in  the  Arduino  code  you  set  if(digitalRead(MouseB) == HIGH){...}  then  you  will  have  your  cursor  moving  and  clicking  left  and  right  buttons  without  you  even  doing  anything.
 
+    ![Airmouse scheme](/static/airmouse_diagram.png)
+
+#### NOTE: 2K resistor should be used when connecting Bluetooth RXD pin to Arduino Nano. It is called a voltage divider brige. We use this because some HC-06 modules operate at 3V3 and do not support the 5V voltage level on pin Rx. More on this in https://www.aranacorp.com/en/arduino-and-bluetooth-module-hc-06/.
+
 # Software:
 
 1.  Arduino IDE
